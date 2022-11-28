@@ -6,17 +6,28 @@ public class Ball {
     public Ball () {
         x =350;
         y=250;
-        xVel =-1;
-        yVel=1;
+        xVel = getRandomDirection() * getRandomSpeed();
+        yVel = getRandomDirection() * getRandomSpeed();
     }
 
+    public double getRandomSpeed() {
+        return (Math.random()*3 + 2);
+    }
+
+    public int getRandomDirection (){
+        int rand = (int) (Math.random()*2);
+        if (rand ==1)
+            return 1;
+        else
+            return -1;
+    }
     public void draw(Graphics g) {
         g.setColor(Color.WHITE);
-        g.fillOval((int)x-10, (int) y-10, 20, 20 )
+        g.fillOval((int)x-10, (int) y-10, 20, 20 );
     }
 
 
-    public void checkPaddleCollision(Paddle p1, Paddle p2) {
+    public void checkPaddleCollision(HumanPaddle p1, AIPaddle p2) {
         if (x <= 50) {
             if (y>=p1.getY() && y<= p2.getY() + 80)
                 xVel = -xVel;
@@ -35,7 +46,6 @@ public class Ball {
         if (y>490)
             yVel = -yVel;
     }
-
 
 
     public int getX(){
