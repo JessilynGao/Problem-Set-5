@@ -10,43 +10,38 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
     AIPaddle p2;
     Ball b1;
     boolean gameStarted;
-    Graphics gfx;
-    Image img;
+    Graphics g;
 
     public Tennis(){
-        JFrame jframe = new JFrame();
-       thread = new Thread(this);
-        jframe.setSize(WIDTH, HEIGHT);
+        this.setSize(WIDTH, HEIGHT);
         gameStarted = false;
-        jframe.setTitle("Pong Game");
-        jframe.setVisible(true);
-        jframe.addKeyListener(this);
+        this.setTitle("Pong Game");
+        this.setVisible(true);
+        this.addKeyListener(this);
         p1 = new HumanPaddle(1);
         b1 = new Ball();
         p2 = new AIPaddle(2, b1);
-        img = createImage(WIDTH,HEIGHT);
-        gfx = img.getGraphics();
+        thread = new Thread(this);
         thread.start();
     }
 
     public void paint(Graphics g){
-        gfx.setColor(Color.BLACK);
-        gfx.fillRect(0,0,WIDTH,HEIGHT);
+        g.setColor(Color.BLACK);
+        g.fillRect(0,0,WIDTH,HEIGHT);
         if(b1.getX() < -10 || b1.getX() > 710){
-            gfx.setColor(Color.red);
-            gfx.drawString("Game Over",350,250);
+            g.setColor(Color.red);
+            g.drawString("Game Over",350,250);
         }
         else {
-            p1.draw(gfx);
-            b1.draw(gfx);
-            p2.draw(gfx);
+            p1.draw(g);
+            b1.draw(g);
+            p2.draw(g);
         }
         if(!gameStarted){
-            gfx.setColor(Color.white);
-            gfx.drawString("Tennis", 340, 100);
-            gfx.drawString("Press Enter to Begin..", 310, 130);
+            g.setColor(Color.white);
+            g.drawString("Tennis", 340, 100);
+            g.drawString("Press Enter to Begin..", 310, 130);
         }
-        g.drawImage(img,0,0,this);
     }
 
     public void update(Graphics g){
