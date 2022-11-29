@@ -65,7 +65,9 @@ public class Tennis1 extends JFrame implements Runnable, KeyListener {
                 p1.move();
                 b1.move();
                 p2.move();
+                b2.move();
                 b1.checkPaddleCollision(p1, p2);
+                b2.checkPaddleCollision(p1, p2);
             }
             this.repaint();
             try {
