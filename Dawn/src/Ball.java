@@ -27,16 +27,19 @@ public class Ball {
     }
 
 
-    public void checkPaddleCollision(HumanPaddle p1, AIPaddle p2) {
-        if (x <= 50) {
-            if (y>=p1.getY() && y<= p2.getY() + 80)
-                xVel = -xVel;
-        }
+ public void checkPaddleCollision(HumanPaddle p1, AIPaddle p2) {
+     if (x <= 50) {
+        if (y>=p1.getY() && y<= p2.getY() + 80)
+               xVel = -xVel;
+     }
         else if (x>=650) {
-            if (y>= p2.getY() && y<= p2.getY()+80)
-                xVel = -xVel;
-        }
+          if (y>= p2.getY() && y<= p2.getY()+80)
+               xVel = -xVel;
+      }
     }
+
+
+
     public void move(){
         x+=xVel;
         y+=yVel;
