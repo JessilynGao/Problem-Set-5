@@ -1,43 +1,38 @@
 import java.awt.*;
 
-public class AIPaddle implements Paddle{
+public class AIPaddle implements Paddle {
     double y, yVel;
     boolean upAccel, downAccel;
-    final double GRAVITY = .94;
+    final double GRAVITY = 0.94;
     int player, x;
     Ball b1;
 
     public AIPaddle(int player, Ball b) {
-        upAccel = false; downAccel = false;
-        b1 = b;
-        y = 210; yVel = 0;
+        upAccel= false; downAccel = false;
+        b1 =b;
+        y=210; yVel=0;
         if (player == 1)
-            x = 20;
+            x=20;
         else
-            x = 660;
+            x= 660;
     }
-    public void draw(Graphics g) {
+
+    public void draw (Graphics g ) {
         g.setColor(Color.white);
-        g.fillRect(x, (int)y, 20, 80);
-    }
-    public void move(){
-        y = b1.getY() - 40;
+        g.fillRect(x, (int)y, 20,80);
 
-        if(y<0)
-            y = 0;
-        if(y>420)
-            y = 420;
     }
+    public void move() {
+        y = b1.getY() -40;
 
-    public void setUpAccel(boolean input){
-        upAccel = input;
-    }
+        if (y<0)
+            y=0;
+        if (y>420)
+            y= 420;
 
-    public void setDownAccel(boolean input){
-        downAccel = input;
     }
 
     public int getY(){
-        return (int) y;
+        return (int)y;
     }
 }
