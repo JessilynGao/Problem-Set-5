@@ -1,107 +1,65 @@
-import java.awt.Color;
-import java.awt.Graphics;
-import java.awt.Rectangle;
-import java.util.Random;
+import java.awt.*;
 
+public class Ball {
+    double xVel, yVel, x, y;
 
-public class Ball implements Runnable {
+    public Ball() {
+        x = 350;
+        y = 250;
+        xVel = getRandomSpeed() * getRandomDirection();
+        yVel = getRandomSpeed() * getRandomDirection();
 
-    //global variables
-    int x, y, xDirection, yDirection;
-
-
-    int p1score, p2score;
-
-    Paddle p1 = new Paddle(10, 25, 1);
-    Paddle p2 = new Paddle(485, 25, 2);
-
-    Rectangle ball;
-
-
-    public Ball(int x, int y){
-        p1score = p2score = 0;
-        this.x = x;
-        this.y = y;
-
-        //Set ball moving randomly
-        Random r = new Random();
-        int rXDir = r.nextInt(1);
-        if (rXDir == 0)
-            rXDir--;
-        setXDirection(rXDir);
-
-        int rYDir = r.nextInt(1);
-        if (rYDir == 0)
-            rYDir--;
-        setYDirection(rYDir);
-
-        //create "ball"
-        ball = new Rectangle(this.x, this.y, 15, 15);
     }
 
-    public void setXDirection(int xDir){
-        xDirection = xDir;
+    public double getRandomSpeed() {
+        return (Math.random() * 3+1);
+
     }
-    public void setYDirection(int yDir){
-        yDirection = yDir;
+
+    public double getRandomDirection() {
+        int rand = (int) (Math.random() * 2);
+        if (rand == 1) {
+            return 1;
+        } else
+            return -1;
     }
 
     public void draw(Graphics g) {
-        g.setColor(Color.WHITE);
-        g.fillRect(ball.x, ball.y, ball.width, ball.height);
+        g.setColor(Color.white);
+        g.fillOval((int) x - 10, (int) y - 10, 20, 20);
     }
 
-    public void collision(){
-        if(ball.intersects(p1.paddle))
-            setXDirection(+1);
-        if(ball.intersects(p2.paddle))
-            setXDirection(-1);
-    }
-    public void move() {
-        collision();
-        ball.x += xDirection;
-        ball.y += yDirection;
-        //bounce the ball when it hits the edge of the screen
-        if (ball.x <= 0) {
-            setXDirection(+1);
-            p2score++;
-
-        }
-        if (ball.x >= 485) {
-            setXDirection(-1);
-            p1score++;
-        }
-
-        if (ball.y <= 15) {
-            setYDirection(+1);
-        }
-
-        if (ball.y >= 385) {
-            setYDirection(-1);
-        }
-    }
-
-    @Override
-    public void run() {
-        try {
-            while(true) {
-                move();
-                if (p1score >= 10) {
-                    System.out.println("P1 score: " + p1score);
-                    System.out.println("P2 score: " + p2score);
-                    System.out.println("P1 Wins");
-                    break;
-                }
-                if (p2score >= 10) {
-                    System.out.println("P1 score: " + p1score);
-                    System.out.println("P2 score: " + p2score);
-                    System.out.println("P2 Wins");
-                    break;
-                }
-                Thread.sleep(7);
+    public void checkPaddleCollision(Paddle p1, Paddle p2) {
+        if (x <= 50) {
+            if (y >= p1.getY() && y <= p1.getY() + 80) {
+                xVel = -xVel;
             }
-        }catch(Exception e) { System.err.println(e.getMessage()); }
-
+        } else if (x >= 650) {
+            if (y >= p2.getY() && y <= p2.getY() + 80) {
+                xVel = -xVel;
+            }
+        }
     }
+
+    public void move() {
+        x += xVel;
+        y += yVel;
+
+        if (y < 10) {
+            yVel = -yVel;
+        }
+        if (y > 490) {
+            yVel = -yVel;
+        }
+    }
+
+    public int getX() {
+        return (int) x;
+    }
+
+    public int getY() {
+        return (int) y;
+    }
+
 
 }
