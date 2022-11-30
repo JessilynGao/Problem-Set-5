@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file Tennis.java
+ * @brief The Tennis class defines the main process of the game,
+ * defines key events, and creates the visual
+ * @author Sabrina Guan
+ * @date: 11/20/2022
+ ***********************************************************************/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
