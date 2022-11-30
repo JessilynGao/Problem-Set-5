@@ -39,7 +39,7 @@ public class Tennis3 extends JFrame implements Runnable, KeyListener {
         rightScoreText.draw(g2);
         if (b1.getX() < -10 || b1.getX() > 710 || b2.getX() < -10 || b2.getX() > 710) {
             g.setColor(Color.red);
-            g.drawString("Game Over", 350, 250);
+            g.drawString("Game Over", 250, 250);
             if (b1.getX() < -10 || b2.getX() < -10){
                 int rightScore = Integer.parseInt(rightScoreText.text);
                 rightScore ++;
@@ -58,8 +58,8 @@ public class Tennis3 extends JFrame implements Runnable, KeyListener {
         }
         if (!gameStarted) {
             g.setColor(Color.white);
-            g.drawString("Tennis", 340, 100);
-            g.drawString("Press Enter to Begin", 310, 130);
+            g.drawString("Tennis", 280, 100);
+            g.drawString("Press Enter to Begin", 200, 130);
 
         }
     }
