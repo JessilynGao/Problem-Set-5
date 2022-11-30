@@ -11,8 +11,11 @@ public class Tennis3 extends JFrame implements Runnable, KeyListener {
     Ball b1;
     SquareBall b2;
     boolean gameStarted;
+    Text leftScoreText, rightScoreText;
 
     public Tennis3() {
+        leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 40), 10, 60);
+        rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,40), 650, 60);
         this.setSize(WIDTH, HEIGHT);
         gameStarted = false;
 
@@ -29,11 +32,24 @@ public class Tennis3 extends JFrame implements Runnable, KeyListener {
     }
 
     public void paint(Graphics g) {
+        Graphics2D g2 = (Graphics2D)g;
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
-        if (b1.getX() < -10 || b1.getX() > 710) {
+        leftScoreText.draw(g2);
+        rightScoreText.draw(g2);
+        if (b1.getX() < -10 || b1.getX() > 710 || b2.getX() < -10 || b2.getX() > 710) {
             g.setColor(Color.red);
             g.drawString("Game Over", 350, 250);
+            if (b1.getX() < -10 || b2.getX() < -10){
+                int rightScore = Integer.parseInt(rightScoreText.text);
+                rightScore ++;
+                leftScoreText.text = "" + rightScore;
+            }
+            else {
+                int leftScore = Integer.parseInt(leftScoreText.text);
+                leftScore ++;
+                leftScoreText.text = "" + leftScore;
+            }
         } else {
             p1.draw(g);
             b1.draw(g);

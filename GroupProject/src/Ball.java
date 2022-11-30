@@ -1,7 +1,10 @@
+import org.w3c.dom.Text;
+
 import java.awt.*;
 
 public class Ball {
     double xVel, yVel, x, y;
+    public Text leftScoreText, rightScoreText;
 
     public Ball() {
         x = 350;
