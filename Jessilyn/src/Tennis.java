@@ -1,3 +1,13 @@
+/**********************************************************************
+ * @file Individual game.java
+ * @brief It consists of two paddled controlled by the user and the computer. In this program,
+ *        the ball bounces off the four walls and the user tries to keep the ball from hitting
+ *        the side wall. When the ball hits the side wall, the game is over.
+ * @author Jessilyn Gao
+ * @date: 11/20/2022
+ * @acknowledgement: CS center, Dr. Pauca, and the Youtube video "How to Program Pong in Java" by
+ *                   Korhn-Education
+ ***********************************************************************/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -43,6 +53,7 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
             g.drawString("Press Enter to Begin", 310, 130);
         }
     }
+
 
     public void update(Graphics g) {
         paint(g);
@@ -104,11 +115,3 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
     }
 
 }
-
-
-
-
-
-
-
-
