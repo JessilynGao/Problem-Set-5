@@ -40,3 +40,4 @@ public class AIPaddle implements Paddle{
         return (int)y;
     }
 }
+
