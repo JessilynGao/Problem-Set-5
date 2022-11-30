@@ -9,7 +9,7 @@ public class Main {
         Scanner scnr = new Scanner(System.in);
         System.out.println("Choose the game level: easy or difficult");
         String gameLevel = scnr.nextLine();
-        System.out.println("Choose game type: 1 player or 2 players");
+        System.out.println("Choose number of players: 1 or 2");
         int gametype = scnr.nextInt();
 
         if (gameLevel.equals("easy") && gametype == 1){
