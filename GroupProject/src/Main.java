@@ -3,6 +3,9 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        int rS;
+        int lS;
+
         Scanner scnr = new Scanner(System.in);
         System.out.println("Choose the game level: easy or difficult");
         String gameLevel = scnr.nextLine();
@@ -11,7 +14,11 @@ public class Main {
 
         if (gameLevel.equals("easy") && gametype == 1){
             Tennis game = new Tennis();
-            game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+  //          rS = game.leftScore();
+   //         if (rS>10) {
+                game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+   //         }
+
         }
 
         else if (gameLevel.equals("difficult") && gametype == 1){

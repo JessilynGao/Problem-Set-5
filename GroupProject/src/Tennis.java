@@ -12,9 +12,11 @@ import java.awt.event.KeyListener;
         Ball b1;
         boolean gameStarted;
         public Text leftScoreText, rightScoreText;
+
+
         public Tennis() {
-            leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 40), 10, 60);
-            rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,40), 650, 60);
+            leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 25), 10, 60);
+            rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,25), 650, 60);
 
             this.setSize(WIDTH, HEIGHT);
             gameStarted = false;
@@ -62,6 +64,19 @@ import java.awt.event.KeyListener;
                 g.drawString("Press Enter to Begin", 200, 130);
             }
         }
+
+     /*   public int rightScore(int rightScore) {
+            int rS;
+            rS =rightScore;
+            return rS;
+        }
+        public int leftScore(int leftScore){
+            int lS;
+            lS =leftScore;
+            return lS;
+        }
+
+      */
 
         public void update(Graphics g) {
             paint(g);

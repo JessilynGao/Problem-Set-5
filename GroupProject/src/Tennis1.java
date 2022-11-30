@@ -14,8 +14,8 @@ public class Tennis1 extends JFrame implements Runnable, KeyListener {
     public Text leftScoreText, rightScoreText;
 
     public Tennis1() {
-        leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 40), 10, 60);
-        rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,40), 650, 60);
+        leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 25), 10, 60);
+        rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,25), 650, 60);
 
         this.setSize(WIDTH, HEIGHT);
         gameStarted = false;

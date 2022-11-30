@@ -11,7 +11,7 @@ public class Ball {
     }
 
     public double getRandomSpeed() {
-        return (Math.random()*3 + 2);
+        return (Math.random()*3 + 1);
     }
 
     public int getRandomDirection (){
