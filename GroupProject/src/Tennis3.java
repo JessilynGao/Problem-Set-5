@@ -1,3 +1,11 @@
+/**********************************************************************
+ * @file Tennis3.java
+ * @brief The Tennis3 class defines the main process of the game,
+ * defines key events, and creates the visual for difficult game
+ * (2 balls) and 2 players.
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;

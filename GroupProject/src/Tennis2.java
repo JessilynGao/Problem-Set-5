@@ -1,3 +1,11 @@
+/**********************************************************************
+ * @file Tennis2.java
+ * @brief The Tennis2 class defines the main process of the game,
+ * defines key events, and creates the visual for easy game
+ * (1 ball) and 2 players.
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;

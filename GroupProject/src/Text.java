@@ -1,3 +1,9 @@
+/**********************************************************************
+ * @file Text.java
+ * @brief The Text class helps format texts shown on the screen.
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import java.awt.*;
 
 public class Text {

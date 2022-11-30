@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file HumanPaddle1.java
+ * @brief The HumanPaddle1 class defines the movement of the second human
+ * paddle that responds to the key events
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import java.awt.*;
 
 public class HumanPaddle1 implements Paddle {

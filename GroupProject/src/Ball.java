@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file Ball.java
+ * @brief The Ball class defines the movement of the round ball that
+ * collide with the paddles
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import java.awt.*;
 
 public class Ball {

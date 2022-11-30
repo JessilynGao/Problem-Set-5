@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file Main.java
+ * @brief The Main class collects response from the user regarding the
+ * game difficulty level and number of players
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import javax.swing.*;
 import java.util.Scanner;
 

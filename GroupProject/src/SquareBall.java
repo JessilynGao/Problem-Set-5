@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file SquareBall.java
+ * @brief The SquareBall class defines the movement of a square ball
+ * that collide with the paddles
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
 import java.awt.Color;
 import java.awt.Graphics;
 
