@@ -1,18 +1,37 @@
+/**********************************************************************
+ * @file Tennis2.java
+ * @brief The Tennis2 class defines the main process of the game,
+ * defines key events, and creates the visual for easy game
+ * (1 ball) and 2 players.
+ * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
+ * @date: 11/30/2022
+ ***********************************************************************/
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Tennis2 extends JFrame implements Runnable, KeyListener {
+
+    //set the size of the canvas and create variables and objects
     final int WIDTH = 700, HEIGHT = 500;
     Thread thread;
     HumanPaddle p1;
     HumanPaddle1 p2;
     Ball b1;
-
     boolean gameStarted;
+    public Text leftScoreText, rightScoreText;
 
+
+    //create constructor to set up the background, font, and the title of the game
+    //the constructor also contains "this reference" and defined objects
     public Tennis2() {
+        leftScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN, 20), 10, 60);
+        rightScoreText = new Text(0, new Font("Times New Roman", Font.PLAIN,20), 650, 60);
+
+
+
         this.setSize(WIDTH, HEIGHT);
         gameStarted = false;
 
@@ -29,21 +48,56 @@ public class Tennis2 extends JFrame implements Runnable, KeyListener {
     }
 
     public void paint(Graphics g) {
+        //draw the background
+        Graphics2D g2 = (Graphics2D)g;
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        leftScoreText.draw(g2);
+        rightScoreText.draw(g2);
+
+        //add one score to player 2 if the ball hits the wall of player 1 and vice versa
         if (b1.getX() < -10 || b1.getX() > 710) {
-            g.setColor(Color.red);
-            g.drawString("Game Over", 350, 250);
-        } else {
+            if (b1.getX() < -10){
+                if (p2.score <= 10) {
+                    p2.score++;
+                }
+                rightScoreText.text = "" + p2.score;
+            }
+            else if (b1.getX() > 710) {
+                if (p1.score <= 10) {
+                    p1.score++;
+                }
+                leftScoreText.text = "" + p1.score;
+            }
+            //reset the coordinates of the ball
+            b1.x = 350 + 200;
+            b1.y = 250 - 10;
+        }
+        //game continue
+        else if (p2.score <= 10 && p1.score <= 10) {
             p1.draw(g);
             b1.draw(g);
             p2.draw(g);
         }
+        //game stops and print winner
+        if (p2.score >= 11) {
+            g.setColor(Color.white);
+            g.drawString("End", 340, 240);
+            g.drawString("P2 WIN", 320, 300);
+            return;
+        }
+        if (p1.score >= 11) {
+            g.setColor(Color.white);
+            g.drawString("End", 340, 240);
+            g.drawString("P1 WIN", 320, 300);
+            return;
+        }
+        // the text appears before the start of the game
         if (!gameStarted) {
             g.setColor(Color.white);
-            g.drawString("Tennis", 340, 100);
-            g.drawString("Press Enter to Begin", 310, 130);
-
+            g.drawString("Tennis", 320, 100);
+            g.drawString("Press Enter to Begin", 290, 130);
         }
     }
 
@@ -55,7 +109,8 @@ public class Tennis2 extends JFrame implements Runnable, KeyListener {
         repaint(g);
     }
 
-
+    //run method inherits from the Runnable interface
+    //controls the movement of paddles and balls and check the collision between ball and paddles
     public void run() {
 
         for (; ; ) {
@@ -77,7 +132,7 @@ public class Tennis2 extends JFrame implements Runnable, KeyListener {
         }
     }
 
-
+    // keys that controls the movement of both Humanpaddles
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             p1.setUpAccel(true);
@@ -99,6 +154,7 @@ public class Tennis2 extends JFrame implements Runnable, KeyListener {
         }
     }
 
+    // keys that controls the movement of both Humnanpaddles
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             p1.setUpAccel(false);
