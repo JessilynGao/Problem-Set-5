@@ -3,6 +3,8 @@
  * @brief The Text class helps format texts shown on the screen.
  * @author Sabrina Guan, Jessilyn Gao, Daniel Ruan, Dawn Zhong
  * @date: 11/30/2022
+ * @acknowledgement: CS center, Dr. Pauca, and the Youtube video "How to Program Pong in Java" by
+ *                    Korhn-Education
  ***********************************************************************/
 import java.awt.*;
 
