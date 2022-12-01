@@ -1,3 +1,9 @@
+/**********************************************************************
+ * @file Paddle.java
+ * @brief This is the paddle interface
+ * @author Sabrina Guan
+ * @date: 11/20/2022
+ ***********************************************************************/
 import java.awt.*;
 
 public interface Paddle {

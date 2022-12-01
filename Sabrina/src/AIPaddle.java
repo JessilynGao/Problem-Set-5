@@ -1,3 +1,10 @@
+/**********************************************************************
+ * @file AIPaddle.java
+ * @brief The AIPaddle class defines the movement of an AI paddle that
+ * interacts with the player
+ * @author Sabrina Guan
+ * @date: 11/20/2022
+ ***********************************************************************/
 import java.awt.*;
 
 public class AIPaddle implements Paddle {
