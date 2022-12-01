@@ -1,3 +1,12 @@
+/**********************************************************************
+ * @file HumanPaddle.java
+ * @brief The HumanPaddle class defines the movement of one human paddle
+ *        that responds to the key events
+ * @author Jessilyn Gao
+ * @date: 11/20/2022
+ * @acknowledgement: CS center, Dr. Pauca, and the Youtube video "How to Program Pong in Java" by
+ *                   Korhn-Education
+ ***********************************************************************/
 import java.awt.*;
 
 public class HumanPaddle implements Paddle {
@@ -59,4 +68,3 @@ public class HumanPaddle implements Paddle {
         return (int) y;
     }
 }
-

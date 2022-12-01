@@ -1,13 +1,25 @@
+/**********************************************************************
+ * @file AIPaddle.java
+ * @brief The AIPaddle class defines the movement of an AI paddle that
+ *         interacts with one player
+ * @author Jessilyn Gao
+ * @date: 11/20/2022
+ * @acknowledgement: CS center, Dr. Pauca, and the Youtube video "How to Program Pong in Java" by
+ *                   Korhn-Education
+ ***********************************************************************/
+
 import java.awt.*;
 
 public class AIPaddle implements Paddle{
+
+    // create variables
     double y,yVel;
     boolean upAccel, downAccel;
     int player,x;
     final double GRAVITY = 0.94;
     Ball b1;
 
-
+    // create a constructor that receive two variables
     public AIPaddle (int player, Ball b){
         upAccel = false;
         downAccel = false;
@@ -21,10 +33,13 @@ public class AIPaddle implements Paddle{
         }
     }
 
+    // draw the color, size and shape of the AIPaddle
     public void draw (Graphics g){
         g.setColor(Color.white);
         g.fillRect(x,(int)y,20,80);
     }
+
+    //allow the movement of AIPaddle corresponds to the ball
     public void move(){
         y = b1.getY() - 40;
         if (y<0){
@@ -35,7 +50,7 @@ public class AIPaddle implements Paddle{
         }
     }
 
-
+    // get the value for y-axis
     public int getY(){
         return (int)y;
     }

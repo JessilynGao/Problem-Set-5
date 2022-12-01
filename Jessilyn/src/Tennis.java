@@ -1,5 +1,5 @@
 /**********************************************************************
- * @file Individual game.java
+ * @file Tennis.java
  * @brief It consists of two paddled controlled by the user and the computer. In this program,
  *        the ball bounces off the four walls and the user tries to keep the ball from hitting
  *        the side wall. When the ball hits the side wall, the game is over.
@@ -14,6 +14,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class Tennis extends JFrame implements Runnable, KeyListener {
+
+    //set the size of the canvas and create variables and objects
     final int WIDTH = 700, HEIGHT = 500;
     Thread thread;
     HumanPaddle p1;
@@ -21,6 +23,9 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
     Ball b1;
     boolean gameStarted;
 
+
+    //create constructor to set up the background, font, and the title of the game
+    //the constructor also contains "this reference" and defined objects
     public Tennis() {
         this.setSize(WIDTH, HEIGHT);
         gameStarted = false;
@@ -37,16 +42,23 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
     }
 
     public void paint(Graphics g) {
+        //draw the background
         g.setColor(Color.black);
         g.fillRect(0, 0, WIDTH, HEIGHT);
+
+        //if the ball hits the wall, game over
+        //set text info for "Game over" on the screen
         if (b1.getX() < -10 || b1.getX() > 710) {
             g.setColor(Color.red);
             g.drawString("Game Over", 350, 250);
-        } else {
+        }
+        // game continue
+        else {
             p1.draw(g);
             b1.draw(g);
             p2.draw(g);
         }
+        // the text appears before the start of the game
         if (!gameStarted) {
             g.setColor(Color.white);
             g.drawString("Tennis", 340, 100);
@@ -63,7 +75,8 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
         repaint(g);
     }
 
-
+    //run method inherits from the Runnable interface
+    //controls the movement of paddles and balls and check the collision between ball and paddles
     public void run() {
 
         for (; ; ) {
@@ -83,6 +96,7 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
         }
     }
 
+    // keys that control the movement of Humanpaddle
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             p1.setUpAccel(true);
@@ -95,6 +109,7 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
         }
     }
 
+    // keys that control the movement of Humanpaddle
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_UP) {
             p1.setUpAccel(false);
@@ -108,6 +123,7 @@ public class Tennis extends JFrame implements Runnable, KeyListener {
 
     }
 
+    //game starts
     public static void main(String[] args) {
         Tennis game = new Tennis();
         game.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
